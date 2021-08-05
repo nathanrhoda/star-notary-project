@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 // StarNotary Contract declaration inheritance the ERC721 openzeppelin implementation
 contract StarNotary is ERC721 {
 
- constructor () ERC721("StarNotaryToken", "STAR") {    
+ constructor () ERC721(Name, Symbol) {    
         //_mint(msg.sender, 1000000 * (10 ** uint256(decimals())));
     }
 
@@ -20,7 +20,8 @@ contract StarNotary is ERC721 {
     // Implement Task 1 Add a name and symbol properties
     // name: Is a short name to your token
     // symbol: Is a short string like 'USD' -> 'American Dollar'
-    
+    string public  Name         = "StarNotaryToken";
+    string public  Symbol       = "STR";
 
     // mapping the Star with the TokenId
     mapping(uint256 => Star) public tokenIdToStarInfo;
@@ -37,7 +38,7 @@ contract StarNotary is ERC721 {
 
     // Putting an Star for sale (Adding the star tokenid into the mapping starsForSale, first verify that the sender is the owner)
     function putStarUpForSale(uint256 _tokenId, uint256 _price) public {
-        require(ownerOf(_tokenId) == msg.sender, "You can't sale the Star you don't owned");
+        require(ownerOf(_tokenId) == msg.sender, "You can't sell the Star you don't owned");
         starsForSale[_tokenId] = _price;
     }
 

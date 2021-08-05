@@ -25,9 +25,10 @@
 require('dotenv').config();
 var HDWalletProvider = require("truffle-hdwallet-provider");
 
+var mnemonicmeta = process.env["MNEMONIC-META"];
 var mnemonic = process.env["MNEMONIC"];
 var tokenKey = process.env["ENDPOINT_KEY"];
-//
+var rinkebyFrom = process.env["RINKEBYFROM"];
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
@@ -69,9 +70,9 @@ module.exports = {
     rinkeby:{
       host: "localhost",
       provider: function() {
-        return new HDWalletProvider( mnemonic, "https://rinkeby.infura.io/v3/" + tokenKey);
+        return new HDWalletProvider(mnemonicmeta, "https://rinkeby.infura.io/v3/" + tokenKey);
       },
-      network_id:4        
+      network_id:4      
     },
 
     // Another network with more advanced options...
