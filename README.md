@@ -9,6 +9,6 @@ OpenZeppelin: "openzeppelin-contracts": "^4.0.0",
 
 Your ERC-721 Token Name: StarNotaryToken 
 Your ERC-721 Token Symbol: STR
-Token Address: https://rinkeby.etherscan.io/token/0x1AC5b732A8Eac5DA7e17f56b83f1f8bCd82C7610
+Token Address: https://rinkeby.etherscan.io/token/0xE47CA067AA8D5DE87acF8ecD8c3aBff567367F85
 
 migrate --network rinkeby --reset
