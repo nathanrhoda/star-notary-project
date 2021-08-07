@@ -7,14 +7,11 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 // StarNotary Contract declaration inheritance the ERC721 openzeppelin implementation
 contract StarNotary is ERC721 {
 
- constructor () ERC721(Name, Symbol) {    
-        //_mint(msg.sender, 1000000 * (10 ** uint256(decimals())));
-    }
+    constructor () ERC721(Name, Symbol) {    }
 
     // Star data
     struct Star {
-        string name;
-        string symbol;
+        string name;        
     }
 
     // Implement Task 1 Add a name and symbol properties
@@ -30,8 +27,8 @@ contract StarNotary is ERC721 {
 
     
     // Create Star using the Struct
-    function createStar(string memory _name, string memory _symbol, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
-        Star memory newStar = Star({name:_name, symbol: _symbol}); // Star is an struct so we are creating a new Star
+    function createStar(string memory _name, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
+        Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
         tokenIdToStarInfo[_tokenId] = newStar; // Creating in memory the Star -> tokenId mapping
         _mint(msg.sender, _tokenId); // _mint assign the the star with _tokenId to the sender address (ownership)
     }
