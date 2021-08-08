@@ -13,7 +13,7 @@ it('can Create a Star', async() => {
     let instance = await StarNotary.deployed();
     let name = 'Awesome Star1';        
     //await createTestStar(instance, name, tokenId, accounts[0]);
-    await instance.createStar(name, tokenId);    
+    await debug ( instance.createStar(name, tokenId))    
     var returnedStarName = await instance.lookUptokenIdToStarInfo(tokenId);
     assert.equal(returnedStarName, name)
 });
